@@ -1,0 +1,53 @@
+<%= render 'layouts/menu_lateral_user' %>
+<% if notice.present? %>
+    <div class="alert alert-success">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+<% end %>
+
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohíbe que se guarde este proveedor</h2>
+      <ul>
+      <% @provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.collection_select :product_id, Product.all, :id, :name, prompt: true,:class => "form-control required" %></td>
+        <td><%= f.text_field :quantidade,:class => 'form-control required' %></td>
+        <td>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <%= f.text_field :price,:class => 'form-control required' %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit "Guardar",:class => 'btn btn-success btn-block' %>
+  </div>
+<% end %>
+
+<script> 
+  $("#new_provider").validate();
+</script>
+<script> 
+  $("#edit_provider").validate();
+</script>
+
+<%= render 'layouts/footer_user' %>
