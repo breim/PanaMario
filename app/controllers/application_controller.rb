@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
    		when User
    			then system_index_path
  	    when Admin
-    	    #then sistema_index_path
+    	    then system_index_path
       	else 
         	root_path
     	end

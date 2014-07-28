@@ -1,0 +1,34 @@
+<%= render 'layouts/menu_lateral_admin' %>
+<legend>Proveedores</legend>
+
+
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>RUC</th>
+      <th>Ciudad</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.company %></td>
+        <td><%= user.ruc %></td>
+        <td><%= user.city.city %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to "Ver producto",mostrar_provedor_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= render 'layouts/footer_user' %>

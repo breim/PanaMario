@@ -26,6 +26,7 @@ class ProvidersController < ApplicationController
   # POST /providers.json
   def create
     @provider = Provider.new(provider_params)
+    @provider.user_id = current_user.id
 
     respond_to do |format|
       if @provider.save
@@ -43,7 +44,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'El producto se ha actualizado correctamente.' }
+        format.html { redirect_to providers_url, notice: 'El producto se ha actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
@@ -70,6 +71,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:product_id, :quantidade, :price)
+      params.require(:provider).permit(:product_id, :quantidade, :price,:user_id)
     end
 end

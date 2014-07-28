@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'institutional#index'
 
+  get '/proveedores' => 'system#provedor'
+
+  get '/mostrar_provedor/:id' => 'system#mostrar_provedor', as: :mostrar_provedor
+
   resources :system
 
   # Example of regular route:

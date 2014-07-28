@@ -5,4 +5,5 @@ class Provider < ActiveRecord::Base
 	validates_presence_of :price,  :message => "El precio debe ser llenado"
 
 	belongs_to :product
+	belongs_to :user
 end

@@ -1,9 +1,13 @@
-<h1>Listing cities</h1>
+<%= render 'layouts/menu_lateral_admin' %>
+<legend>Ciudades</legend>
 
-<table>
+
+<%= link_to 'Nueva ciudad', new_city_path,:class => "btn btn-success btn-block" %>
+<br>
+<table class="table">
   <thead>
     <tr>
-      <th>City</th>
+      <th>Ciudade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +16,8 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= city.city %></td>
-        <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destruir', city, method: :delete, data: { confirm: 'Estás seguro ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +25,7 @@
 
 <br>
 
-<%= link_to 'New City', new_city_path %>
+
+
+<%= render 'layouts/footer_user' %>
+

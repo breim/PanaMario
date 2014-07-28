@@ -1,6 +1,8 @@
-<h1>Listing products</h1>
-
-<table>
+<%= render 'layouts/menu_lateral_admin' %>
+<legend>Productos</legend>
+<%= link_to 'Nuevo producto', new_product_path,:class =>"btn btn-success btn-block" %>
+<br>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,14 +14,11 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_product_path(product) %></td>
+        <td><%= link_to 'Destruir', product, method: :delete, data: { confirm: 'Estás seguro ?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<%= render 'layouts/footer_user' %>

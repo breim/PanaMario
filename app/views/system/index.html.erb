@@ -1,3 +1,9 @@
-<%= render 'layouts/menu_lateral_user' %>
-<legend>Home</legend>
-<%= render 'layouts/footer_user' %>
+<% if current_user.present? %>
+	<%= render 'layouts/menu_lateral_user' %>
+		<legend>Home</legend>
+	<%= render 'layouts/footer_user' %>
+<% else %>
+	<%= render 'layouts/menu_lateral_admin' %>
+		<legend>Home</legend>
+	<%= render 'layouts/footer_user' %>
+<% end %>

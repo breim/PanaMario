@@ -27,8 +27,8 @@
       <div class="navbar-right top-yellow btn-login">
         <% if current_user.present? %>
         <div class="top-color">  <%= current_user.email %> - RUC <%= current_user.ruc %> /   <%= link_to "Sair", destroy_user_session_path, :method => :delete %> </div> <%# link_to "Entrar".html_safe,new_user_session_path,:class => "btn btn-default" %>            
-        <% elsif current_user.present? %>
-          <%= current_user.email %>
+        <% elsif current_admin.present? %> 
+         <div class="top-color">  <%= current_admin.email %> /  <%= link_to "Sair", destroy_admin_session_path, :method => :delete %>  </div>
         <% else %>
           <%= link_to "Entrar".html_safe,new_user_session_path,:class => "btn btn-default" %> 
         <% end %>

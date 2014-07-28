@@ -12,10 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :city,:class => "form-control" %>
   </div>
+
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Guardar",:class => "btn btn-block btn-success" %>
   </div>
 <% end %>

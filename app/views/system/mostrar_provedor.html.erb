@@ -1,0 +1,40 @@
+<%= render 'layouts/menu_lateral_admin' %>
+<legend>Proveedor</legend> 
+
+<strong>Empresa:</strong> <%= @user.company %>      <br> 
+<strong>RUC:</strong> <%= @user.ruc %>         <br>
+<strong>Ciudad</strong> <%= @user.city.city %>      <br>
+<strong>Email</strong> <%= @user.email %>        <br>
+
+<br>
+
+<br>
+
+<legend>Productos de proveedores</legend>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Productos</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.providers.each do |provider| %>
+      <tr>
+        <td><%= provider.product.name %></td>
+        <td><%= provider.quantidade %></td>
+        <td><%= provider.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= render 'layouts/footer_user' %>
+
+
