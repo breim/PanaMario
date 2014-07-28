@@ -12,7 +12,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
+  pool: 600
   username: root
   password: 123abc@
   socket: /var/run/mysqld/mysqld.sock
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: prices_production
-  username: prices
-  password: <%= ENV['PRICES_DATABASE_PASSWORD'] %>
+  username: root
+  password: 123abc@
